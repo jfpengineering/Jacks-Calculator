@@ -72,6 +72,24 @@ class MyLayout(Widget):
             secondnum = int(secondstring)
             answer = firstnum * secondnum
             self.textinput.text = str(answer)
+        elif ("/" in self.textinput.text and "." in self.textinput.text):
+            string = self.textinput.text
+            place = string.find("/")
+            firststring = string[0:place]
+            secondstring = string[place+1:]
+            firstnum = float(firststring)
+            secondnum = float(secondstring)
+            answer = firstnum / secondnum
+            self.textinput.text = str(answer)
+        elif ("/" in self.textinput.text):
+            string = self.textinput.text
+            place = string.find("/")
+            firststring = string[0:place]
+            secondstring = string[place+1:]
+            firstnum = int(firststring)
+            secondnum = int(secondstring)
+            answer = firstnum / secondnum
+            self.textinput.text = str(answer)
         else:
             self.textinput.text = "ERROR"
 
@@ -87,6 +105,9 @@ class MyLayout(Widget):
 
     def multiplynums(self):
         self.textinput.text = self.textinput.text +"x"
+
+    def dividenums(self):
+        self.textinput.text = self.textinput.text +"/"
 
     def numzero(self):
             self.textinput.text = self.textinput.text + "0"
