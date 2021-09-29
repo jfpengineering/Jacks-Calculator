@@ -79,8 +79,11 @@ class MyLayout(Widget):
             secondstring = string[place+1:]
             firstnum = float(firststring)
             secondnum = float(secondstring)
-            answer = firstnum / secondnum
-            self.textinput.text = str(answer)
+            if secondnum == 0 or 0. or 0.0 or 0.00 or 0.000:
+                self.textinput.text = "ERROR"
+            else:
+                answer = firstnum / secondnum
+                self.textinput.text = str(answer)
         elif ("/" in self.textinput.text):
             string = self.textinput.text
             place = string.find("/")
@@ -88,8 +91,11 @@ class MyLayout(Widget):
             secondstring = string[place+1:]
             firstnum = int(firststring)
             secondnum = int(secondstring)
-            answer = firstnum / secondnum
-            self.textinput.text = str(answer)
+            if secondnum == 0:
+                self.textinput.text = "ERROR"
+            else:
+                answer = firstnum / secondnum
+                self.textinput.text = str(answer)
         else:
             self.textinput.text = "ERROR"
 
